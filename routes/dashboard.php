@@ -1,9 +1,11 @@
 <?php
 // Prefixed by /doika/dashboard
+Route::post('images/upload', 'AssetController@imageUpload')->name('images.upload');
 
-Route::get('/campaigns', 'Dashboard\CampaignController@index')->name('dashboard.campaigns.index');
-Route::get('/campaigns/{id}', 'Dashboard\CampaignController@show')->name('dashboard.campaigns.index');
-Route::post('/campaigns', 'Dashboard\CampaignController@store')->name('dashboard.campaigns.store');
+Route::get('/campaigns/search', 'Dashboard\CampaignController@index')->name('dashboard.campaigns.index');
+Route::get('/campaigns/{id}/show', 'Dashboard\CampaignController@show')->name('dashboard.campaigns.show');
+Route::post('/campaigns/store', 'Dashboard\CampaignController@store')->name('dashboard.campaigns.store');
+Route::post('/campaigns/{id}/active', 'Dashboard\CampaignController@activeToggle')->name('dashboard.campaigns.active');
 Route::put('/campaigns/{id}', 'Dashboard\CampaignController@update')->name('dashboard.campaigns.update');
 Route::delete('/campaigns/{id}', 'Dashboard\CampaignController@delete')->name('dashboard.campaigns.delete');
 
